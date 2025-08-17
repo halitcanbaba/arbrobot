@@ -15,12 +15,38 @@ A high-performance crypto arbitrage alert bot that monitors cross-exchange and t
 
 ## 🚀 Quick Start
 
+### Windows
+
+1. **Install Python 3.11+** from [python.org](https://python.org)
+
+2. **Clone and setup**:
+   ```cmd
+   git clone https://github.com/halitcanbaba/arbrobot.git
+   cd arbrobot
+   windows_setup.bat
+   ```
+
+3. **Configure**:
+   ```cmd
+   copy .env.example .env
+   # Edit .env with your Telegram bot token and preferences
+   ```
+
+4. **Run the bot**:
+   ```cmd
+   run_windows.bat
+   # or manually:
+   python run_bot.py
+   ```
+
+### Linux/macOS
+
 1. **Install Python 3.11+**
 
 2. **Clone and setup**:
    ```bash
-   git clone <repository>
-   cd arbitraj
+   git clone https://github.com/halitcanbaba/arbrobot.git
+   cd arbrobot
    ./setup_and_test.py  # Automated setup
    ```
 

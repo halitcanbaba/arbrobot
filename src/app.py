@@ -6,7 +6,13 @@ import signal
 import sys
 from typing import Dict, List, Optional, Set, Tuple
 from datetime import datetime, timedelta
-import uvloop
+
+# Try to import uvloop for better performance on Unix systems
+try:
+    import uvloop
+    UVLOOP_AVAILABLE = True
+except ImportError:
+    UVLOOP_AVAILABLE = False
 
 from config import config
 from registry import registry
@@ -509,8 +515,12 @@ class ArbitrageBotApp:
 
 async def main():
     """Main application entry point."""
-    # Install uvloop for better performance
-    uvloop.install()
+    # Install uvloop for better performance on Unix systems
+    if UVLOOP_AVAILABLE:
+        uvloop.install()
+        logging.info("Using uvloop for enhanced performance")
+    else:
+        logging.info("uvloop not available, using default asyncio event loop")
     
     app = ArbitrageBotApp()
     
